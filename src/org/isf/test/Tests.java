@@ -42,7 +42,9 @@ import org.junit.runners.Suite.SuiteClasses;
 	org.isf.vaccine.test.Tests.class,	
 	org.isf.vactype.test.Tests.class,
 	org.isf.visits.test.Tests.class,
-	org.isf.ward.test.Tests.class
+	org.isf.ward.test.Tests.class,
+	org.isf.bsunit.test.Tests.class,
+	org.isf.tempunit.test.Tests.class
 	})
 public class Tests {
 
