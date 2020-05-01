@@ -1,4 +1,5 @@
-CREATE TABLE BSUNIT
+-- See step_01_create_structure.sql
+/* CREATE TABLE BSUNIT
 (
     BSU_ID_A               varchar(10)          not null,
     BSU_DESC               varchar(50)          not null,
@@ -19,20 +20,23 @@ CREATE TABLE TEMPUNIT
     TPU_LAST_MODIFIED_DATE datetime             null,
     TPU_ACTIVE             tinyint(1) default 1 not null,
     PRIMARY KEY (TPU_ID_A)
-) ENGINE = MyISAM;
+) ENGINE = MyISAM;*/
 
--- Load data
+-- See step_03_dump_default_data_en.sql
+/* -- BSUNIT
 LOAD DATA LOCAL INFILE './data_en/bsunit.csv'
     INTO TABLE BSUNIT
     FIELDS TERMINATED BY ';'
     LINES TERMINATED BY '\n'
     (BSU_ID_A, BSU_DESC, BSU_ACTIVE);
--- Load data
+
+-- TEMPUNIT
 LOAD DATA LOCAL INFILE './data_en/tempunit.csv'
     INTO TABLE TEMPUNIT
     FIELDS TERMINATED BY ';'
     LINES TERMINATED BY '\n'
     (TPU_ID_A, TPU_DESC, TPU_ACTIVE);
+*/
 
 -- Add to menu
 INSERT INTO GROUPMENU (GM_UG_ID_A, GM_MNI_ID_A, GM_ACTIVE) VALUES

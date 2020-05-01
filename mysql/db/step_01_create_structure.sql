@@ -394,3 +394,27 @@ CREATE TABLE MENUITEM (
   	MNI_POSITION int(10) unsigned NOT NULL default '0',
   	PRIMARY KEY  (MNI_ID_A)
 ) ENGINE=MyISAM;
+
+CREATE TABLE BSUNIT
+(
+    BSU_ID_A               varchar(10)          not null,
+    BSU_DESC               varchar(50)          not null,
+    BSU_CREATED_BY         varchar(50)          null,
+    BSU_CREATED_DATE       datetime             null,
+    BSU_LAST_MODIFIED_BY   varchar(50)          null,
+    BSU_LAST_MODIFIED_DATE datetime             null,
+    BSU_ACTIVE             tinyint(1) default 1 not null,
+    PRIMARY KEY (BSU_ID_A)
+) ENGINE = MyISAM;
+
+CREATE TABLE TEMPUNIT
+(
+    TPU_ID_A               varchar(2)           not null,
+    TPU_DESC               varchar(50)          not null,
+    TPU_CREATED_BY         varchar(50)          null,
+    TPU_CREATED_DATE       datetime             null,
+    TPU_LAST_MODIFIED_BY   varchar(50)          null,
+    TPU_LAST_MODIFIED_DATE datetime             null,
+    TPU_ACTIVE             tinyint(1) default 1 not null,
+    PRIMARY KEY (TPU_ID_A)
+) ENGINE = MyISAM;
