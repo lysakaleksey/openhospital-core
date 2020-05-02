@@ -40,10 +40,11 @@ LOAD DATA LOCAL INFILE './data_en/tempunit.csv'
 
 -- Add to menu
 INSERT INTO GROUPMENU (GM_UG_ID_A, GM_MNI_ID_A, GM_ACTIVE) VALUES
-('admin', 'bsunit', 1),('admin', 'tempunit', 1);
+('admin', 'bsunit', 1),('admin', 'tempunit', 1),('admin', 'patientpresent', 1);
 INSERT INTO MENUITEM (MNI_ID_A, MNI_BTN_LABEL, MNI_LABEL, MNI_TOOLTIP, MNI_SHORTCUT, MNI_SUBMENU, MNI_CLASS, MNI_IS_SUBMENU, MNI_POSITION) VALUES
 ('bsunit', 'angal.menu.btn.bsunit', 'angal.menu.bsunit', 'x', 'B', 'types', 'org.isf.bsunit.gui.BsUnitBrowser', 'N', 13),
-('tempunit', 'angal.menu.btn.tempunit', 'angal.menu.tempunit', 'x', 'T', 'types', 'org.isf.tempunit.gui.TempUnitBrowser', 'N', 14);
+('tempunit', 'angal.menu.btn.tempunit', 'angal.menu.tempunit', 'x', 'T', 'types', 'org.isf.tempunit.gui.TempUnitBrowser', 'N', 14),
+('patientpresent', 'angal.menu.btn.patientpresent', 'angal.menu.patientpresent', 'x', 'S', 'main', 'org.isf.patpres.gui.PatPresBrowser', 'N', 6);
 COMMIT;
 
 -- Patient Presentation
