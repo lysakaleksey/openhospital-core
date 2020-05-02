@@ -54,10 +54,10 @@ public class PatientPresentation extends Auditable<String> {
 	@Column(name = "PPR_REFERRED_FROM")
 	private String referredFrom;
 
-	@Column(name = "PPR_PAT_ALIM_DESC")
+	@Column(name = "PPR_PAT_AILM_DESC")
 	private String patientAilmentDescription;
 
-	@Column(name = "PPR_DOC_ALIM_DESC")
+	@Column(name = "PPR_DOC_AILM_DESC")
 	private String doctorsAilmentDescription;
 
 	@Column(name = "PPR_SPEC_SYMPTOMS")

@@ -39,12 +39,14 @@ LOAD DATA LOCAL INFILE './data_en/tempunit.csv'
 */
 
 -- Add to menu
-INSERT INTO GROUPMENU (GM_UG_ID_A, GM_MNI_ID_A, GM_ACTIVE) VALUES
-('admin', 'bsunit', 1),('admin', 'tempunit', 1),('admin', 'patientpresent', 1);
-INSERT INTO MENUITEM (MNI_ID_A, MNI_BTN_LABEL, MNI_LABEL, MNI_TOOLTIP, MNI_SHORTCUT, MNI_SUBMENU, MNI_CLASS, MNI_IS_SUBMENU, MNI_POSITION) VALUES
-('bsunit', 'angal.menu.btn.bsunit', 'angal.menu.bsunit', 'x', 'B', 'types', 'org.isf.bsunit.gui.BsUnitBrowser', 'N', 13),
-('tempunit', 'angal.menu.btn.tempunit', 'angal.menu.tempunit', 'x', 'T', 'types', 'org.isf.tempunit.gui.TempUnitBrowser', 'N', 14),
-('patientpresent', 'angal.menu.btn.patientpresent', 'angal.menu.patientpresent', 'x', 'S', 'main', 'org.isf.patpres.gui.PatPresBrowser', 'N', 6);
+INSERT INTO GROUPMENU (GM_UG_ID_A, GM_MNI_ID_A, GM_ACTIVE)
+VALUES ('admin', 'bsunit', 1),
+       ('admin', 'tempunit', 1),
+       ('admin', 'patientpresent', 1);
+INSERT INTO MENUITEM (MNI_ID_A, MNI_BTN_LABEL, MNI_LABEL, MNI_TOOLTIP, MNI_SHORTCUT, MNI_SUBMENU, MNI_CLASS, MNI_IS_SUBMENU, MNI_POSITION)
+VALUES ('bsunit', 'angal.menu.btn.bsunit', 'angal.menu.bsunit', 'x', 'B', 'types', 'org.isf.bsunit.gui.BsUnitBrowser', 'N', 13),
+       ('tempunit', 'angal.menu.btn.tempunit', 'angal.menu.tempunit', 'x', 'T', 'types', 'org.isf.tempunit.gui.TempUnitBrowser', 'N', 14),
+       ('patientpresent', 'angal.menu.btn.patientpresent', 'angal.menu.patientpresent', 'x', 'S', 'main', 'org.isf.patpres.gui.PatPresBrowser', 'N', 6);
 COMMIT;
 
 -- Patient Presentation
@@ -57,8 +59,8 @@ CREATE TABLE PATIENTPRESENTATION
     PPR_CONS_DATE          date,
     PPR_PREV_DATE          date,
     PPR_REFERRED_FROM      varchar(300),
-    PPR_PAT_ALIM_DESC      varchar(300),
-    PPR_DOC_ALIM_DESC      varchar(300),
+    PPR_PAT_AILM_DESC      varchar(300),
+    PPR_DOC_AILM_DESC      varchar(300),
     PPR_SPEC_SYMPTOMS      varchar(300),
     PPR_DIAGNOSIS          varchar(300),
     PPR_PROGNOSIS          varchar(300),
@@ -66,7 +68,7 @@ CREATE TABLE PATIENTPRESENTATION
     PPR_PRESCRIBED         varchar(300),
     PPR_FOLLOW_UP          varchar(300),
     PPR_REFERRED_TO        varchar(300),
-    PPR_SUMMARY            varchar(300) not null,
+    PPR_SUMMARY            varchar(300)         not null,
     PPR_VITALS_WEIGHT      float,
     PPR_VITALS_HEIGHT      float,
     PPR_VITALS_BLOOD_SUGAR float,
