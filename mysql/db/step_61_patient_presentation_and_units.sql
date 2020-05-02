@@ -47,14 +47,15 @@ INSERT INTO MENUITEM (MNI_ID_A, MNI_BTN_LABEL, MNI_LABEL, MNI_TOOLTIP, MNI_SHORT
 COMMIT;
 
 -- Patient Presentation
+drop TABLE PATIENTPRESENTATION;
 CREATE TABLE PATIENTPRESENTATION
 (
     PPR_ID                 int                  NOT NULL AUTO_INCREMENT,
     PPR_PAT_ID             int                  not null,
-    PPR_PRES_DATE          datetime,
-    PPR_CONS_DATE          datetime,
-    PPR_PREV_DATE          datetime,
-    PPR_REFERRED           varchar(300),
+    PPR_PRES_DATE          date,
+    PPR_CONS_DATE          date,
+    PPR_PREV_DATE          date,
+    PPR_REFERRED_FROM      varchar(300),
     PPR_PAT_ALIM_DESC      varchar(300),
     PPR_DOC_ALIM_DESC      varchar(300),
     PPR_SPEC_SYMPTOMS      varchar(300),
@@ -64,7 +65,7 @@ CREATE TABLE PATIENTPRESENTATION
     PPR_PRESCRIBED         varchar(300),
     PPR_FOLLOW_UP          varchar(300),
     PPR_REFERRED_TO        varchar(300),
-    PPR_SUMMARY            varchar(300),
+    PPR_SUMMARY            varchar(300) not null,
     PPR_VITALS_WEIGHT      float,
     PPR_VITALS_HEIGHT      float,
     PPR_VITALS_BLOOD_SUGAR float,
@@ -78,8 +79,6 @@ CREATE TABLE PATIENTPRESENTATION
     PPR_LAST_MODIFIED_BY   varchar(50)          null,
     PPR_LAST_MODIFIED_DATE datetime             null,
     PPR_ACTIVE             tinyint(1) default 1 not null,
-    PRIMARY KEY (PPR_ID),
-    constraint FK_PATIENTPRESENTATION_PATIENT
-        foreign key (PPR_PAT_ID) references PATIENT (PAT_ID) on update cascade on delete cascade
+    PRIMARY KEY (PPR_ID)
 ) ENGINE = MyISAM;
 

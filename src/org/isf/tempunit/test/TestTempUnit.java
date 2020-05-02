@@ -6,7 +6,7 @@ import org.isf.utils.exception.OHException;
 import static org.junit.Assert.assertEquals;
 
 public class TestTempUnit {
-	private final String code = "X";
+	private final String code = "T";
 	private final String description = "9.TEST";
 
 	public TempUnit setup(boolean usingSet) throws OHException {
