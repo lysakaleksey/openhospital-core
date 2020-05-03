@@ -267,13 +267,43 @@ public class PatientPresentation extends Auditable<String> {
 		PatientPresentation that = (PatientPresentation) o;
 
 		if (code != that.code) return false;
-		return patient != null ? patient.equals(that.patient) : that.patient == null;
+		if (patient != null ? !patient.equals(that.patient) : that.patient != null) return false;
+		if (vitals != null ? !vitals.equals(that.vitals) : that.vitals != null) return false;
+		if (presentationDate != null ? !presentationDate.equals(that.presentationDate) : that.presentationDate != null) return false;
+		if (consultationEnd != null ? !consultationEnd.equals(that.consultationEnd) : that.consultationEnd != null) return false;
+		if (previousConsult != null ? !previousConsult.equals(that.previousConsult) : that.previousConsult != null) return false;
+		if (referredFrom != null ? !referredFrom.equals(that.referredFrom) : that.referredFrom != null) return false;
+		if (patientAilmentDescription != null ? !patientAilmentDescription.equals(that.patientAilmentDescription) : that.patientAilmentDescription != null) return false;
+		if (doctorsAilmentDescription != null ? !doctorsAilmentDescription.equals(that.doctorsAilmentDescription) : that.doctorsAilmentDescription != null) return false;
+		if (specificSymptoms != null ? !specificSymptoms.equals(that.specificSymptoms) : that.specificSymptoms != null) return false;
+		if (diagnosis != null ? !diagnosis.equals(that.diagnosis) : that.diagnosis != null) return false;
+		if (prognosis != null ? !prognosis.equals(that.prognosis) : that.prognosis != null) return false;
+		if (patientAdvice != null ? !patientAdvice.equals(that.patientAdvice) : that.patientAdvice != null) return false;
+		if (prescribed != null ? !prescribed.equals(that.prescribed) : that.prescribed != null) return false;
+		if (followUp != null ? !followUp.equals(that.followUp) : that.followUp != null) return false;
+		if (referredTo != null ? !referredTo.equals(that.referredTo) : that.referredTo != null) return false;
+		return summary != null ? summary.equals(that.summary) : that.summary == null;
 	}
 
 	@Override
 	public int hashCode() {
 		int result = code;
 		result = 31 * result + (patient != null ? patient.hashCode() : 0);
+		result = 31 * result + (vitals != null ? vitals.hashCode() : 0);
+		result = 31 * result + (presentationDate != null ? presentationDate.hashCode() : 0);
+		result = 31 * result + (consultationEnd != null ? consultationEnd.hashCode() : 0);
+		result = 31 * result + (previousConsult != null ? previousConsult.hashCode() : 0);
+		result = 31 * result + (referredFrom != null ? referredFrom.hashCode() : 0);
+		result = 31 * result + (patientAilmentDescription != null ? patientAilmentDescription.hashCode() : 0);
+		result = 31 * result + (doctorsAilmentDescription != null ? doctorsAilmentDescription.hashCode() : 0);
+		result = 31 * result + (specificSymptoms != null ? specificSymptoms.hashCode() : 0);
+		result = 31 * result + (diagnosis != null ? diagnosis.hashCode() : 0);
+		result = 31 * result + (prognosis != null ? prognosis.hashCode() : 0);
+		result = 31 * result + (patientAdvice != null ? patientAdvice.hashCode() : 0);
+		result = 31 * result + (prescribed != null ? prescribed.hashCode() : 0);
+		result = 31 * result + (followUp != null ? followUp.hashCode() : 0);
+		result = 31 * result + (referredTo != null ? referredTo.hashCode() : 0);
+		result = 31 * result + (summary != null ? summary.hashCode() : 0);
 		return result;
 	}
 }

@@ -53,8 +53,8 @@ public class PatPresIoOperations {
 	 */
 	public boolean newPatientPresentation(PatientPresentation patPres) throws OHServiceException {
 		boolean result = true;
-		PatientPresentation savedVaccine = repository.save(patPres);
-		result = (savedVaccine != null);
+		PatientPresentation savedPresentation = repository.save(patPres);
+		result = (savedPresentation != null);
 		return result;
 	}
 
@@ -67,8 +67,8 @@ public class PatPresIoOperations {
 	 */
 	public boolean updatePatientPresentation(PatientPresentation patPres) throws OHServiceException {
 		boolean result = true;
-		PatientPresentation savedVaccine = repository.save(patPres);
-		result = (savedVaccine != null);
+		PatientPresentation savedPresentation = repository.save(patPres);
+		result = (savedPresentation != null);
 		return result;
 	}
 
