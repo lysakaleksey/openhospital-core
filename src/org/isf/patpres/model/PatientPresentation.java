@@ -93,7 +93,7 @@ public class PatientPresentation extends Auditable<String> {
 	private String referredTo;
 
 	@NotNull
-	@Max(value = 65535)
+	@Max(value = 1000)
 	@Column(name = "PPR_SUMMARY")
 	private String summary;
 

@@ -5,10 +5,10 @@ import javax.persistence.*;
 
 @Embeddable
 public class Vitals {
-	private float weight;
-	private float height;
-	private float bloodSugar;
-	private float temperature;
+	private Float weight;
+	private Float height;
+	private Float bloodSugar;
+	private Float temperature;
 	private String bsUnit;
 	private String tempUnit;
 	@Embedded
@@ -17,7 +17,7 @@ public class Vitals {
 	public Vitals() {
 	}
 
-	public Vitals(float weight, float height, float bloodSugar, float temperature, String bsUnit, String tempUnit, Bp bp) {
+	public Vitals(Float weight, Float height, Float bloodSugar, Float temperature, String bsUnit, String tempUnit, Bp bp) {
 		this.weight = weight;
 		this.height = height;
 		this.bloodSugar = bloodSugar;
@@ -27,35 +27,35 @@ public class Vitals {
 		this.bp = bp;
 	}
 
-	public float getWeight() {
+	public Float getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
+	public void setWeight(Float weight) {
 		this.weight = weight;
 	}
 
-	public float getHeight() {
+	public Float getHeight() {
 		return height;
 	}
 
-	public void setHeight(float height) {
+	public void setHeight(Float height) {
 		this.height = height;
 	}
 
-	public float getBloodSugar() {
+	public Float getBloodSugar() {
 		return bloodSugar;
 	}
 
-	public void setBloodSugar(float bloodSugar) {
+	public void setBloodSugar(Float bloodSugar) {
 		this.bloodSugar = bloodSugar;
 	}
 
-	public float getTemperature() {
+	public Float getTemperature() {
 		return temperature;
 	}
 
-	public void setTemperature(float temperature) {
+	public void setTemperature(Float temperature) {
 		this.temperature = temperature;
 	}
 
@@ -90,10 +90,10 @@ public class Vitals {
 
 		Vitals vitals = (Vitals) o;
 
-		if (Float.compare(vitals.weight, weight) != 0) return false;
-		if (Float.compare(vitals.height, height) != 0) return false;
-		if (Float.compare(vitals.bloodSugar, bloodSugar) != 0) return false;
-		if (Float.compare(vitals.temperature, temperature) != 0) return false;
+		if (weight != null ? !weight.equals(vitals.weight) : vitals.weight != null) return false;
+		if (height != null ? !height.equals(vitals.height) : vitals.height != null) return false;
+		if (bloodSugar != null ? !bloodSugar.equals(vitals.bloodSugar) : vitals.bloodSugar != null) return false;
+		if (temperature != null ? !temperature.equals(vitals.temperature) : vitals.temperature != null) return false;
 		if (bsUnit != null ? !bsUnit.equals(vitals.bsUnit) : vitals.bsUnit != null) return false;
 		if (tempUnit != null ? !tempUnit.equals(vitals.tempUnit) : vitals.tempUnit != null) return false;
 		return bp != null ? bp.equals(vitals.bp) : vitals.bp == null;
@@ -101,10 +101,10 @@ public class Vitals {
 
 	@Override
 	public int hashCode() {
-		int result = (weight != +0.0f ? Float.floatToIntBits(weight) : 0);
-		result = 31 * result + (height != +0.0f ? Float.floatToIntBits(height) : 0);
-		result = 31 * result + (bloodSugar != +0.0f ? Float.floatToIntBits(bloodSugar) : 0);
-		result = 31 * result + (temperature != +0.0f ? Float.floatToIntBits(temperature) : 0);
+		int result = weight != null ? weight.hashCode() : 0;
+		result = 31 * result + (height != null ? height.hashCode() : 0);
+		result = 31 * result + (bloodSugar != null ? bloodSugar.hashCode() : 0);
+		result = 31 * result + (temperature != null ? temperature.hashCode() : 0);
 		result = 31 * result + (bsUnit != null ? bsUnit.hashCode() : 0);
 		result = 31 * result + (tempUnit != null ? tempUnit.hashCode() : 0);
 		result = 31 * result + (bp != null ? bp.hashCode() : 0);

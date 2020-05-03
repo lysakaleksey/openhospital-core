@@ -6,30 +6,30 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 @Embeddable
 public class Bp{
-	private int systole;
-	private int diastole;
+	private Integer systole;
+	private Integer diastole;
 
 	public Bp() {
 	}
 
-	public Bp(int systole, int diastole) {
+	public Bp(Integer systole, Integer diastole) {
 		this.systole = systole;
 		this.diastole = diastole;
 	}
 
-	public int getSystole() {
+	public Integer getSystole() {
 		return systole;
 	}
 
-	public void setSystole(int systole) {
+	public void setSystole(Integer systole) {
 		this.systole = systole;
 	}
 
-	public int getDiastole() {
+	public Integer getDiastole() {
 		return diastole;
 	}
 
-	public void setDiastole(int diastole) {
+	public void setDiastole(Integer diastole) {
 		this.diastole = diastole;
 	}
 
@@ -40,14 +40,14 @@ public class Bp{
 
 		Bp bp = (Bp) o;
 
-		if (systole != bp.systole) return false;
-		return diastole == bp.diastole;
+		if (systole != null ? !systole.equals(bp.systole) : bp.systole != null) return false;
+		return diastole != null ? diastole.equals(bp.diastole) : bp.diastole == null;
 	}
 
 	@Override
 	public int hashCode() {
-		int result = systole;
-		result = 31 * result + diastole;
+		int result = systole != null ? systole.hashCode() : 0;
+		result = 31 * result + (diastole != null ? diastole.hashCode() : 0);
 		return result;
 	}
 }

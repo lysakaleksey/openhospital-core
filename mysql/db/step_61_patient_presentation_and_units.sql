@@ -67,7 +67,7 @@ CREATE TABLE PATIENTPRESENTATION
     PPR_PRESCRIBED         text,
     PPR_FOLLOW_UP          text,
     PPR_REFERRED_TO        varchar(100),
-    PPR_SUMMARY            text         not null,
+    PPR_SUMMARY            varchar(1000)        not null,
     PPR_VITALS_WEIGHT      float,
     PPR_VITALS_HEIGHT      float,
     PPR_VITALS_BLOOD_SUGAR float,
