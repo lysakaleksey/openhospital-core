@@ -5,6 +5,7 @@ import org.isf.utils.db.Auditable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.util.GregorianCalendar;
 
@@ -51,37 +52,48 @@ public class PatientPresentation extends Auditable<String> {
 	@Column(name = "PPR_PREV_DATE")
 	private GregorianCalendar previousConsult;
 
+	@Max(value = 100)
 	@Column(name = "PPR_REFERRED_FROM")
 	private String referredFrom;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_PAT_AILM_DESC")
 	private String patientAilmentDescription;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_DOC_AILM_DESC")
 	private String doctorsAilmentDescription;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_SPEC_SYMPTOMS")
 	private String specificSymptoms;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_DIAGNOSIS")
 	private String diagnosis;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_PROGNOSIS")
 	private String prognosis;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_ADVICE")
 	private String patientAdvice;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_PRESCRIBED")
 	private String prescribed;
 
+	@Max(value = 65535)
 	@Column(name = "PPR_FOLLOW_UP")
 	private String followUp;
 
+	@Max(value = 100)
 	@Column(name = "PPR_REFERRED_TO")
 	private String referredTo;
 
 	@NotNull
+	@Max(value = 65535)
 	@Column(name = "PPR_SUMMARY")
 	private String summary;
 

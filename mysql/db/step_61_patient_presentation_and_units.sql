@@ -50,25 +50,24 @@ VALUES ('bsunit', 'angal.menu.btn.bsunit', 'angal.menu.bsunit', 'x', 'B', 'types
 COMMIT;
 
 -- Patient Presentation
-drop TABLE PATIENTPRESENTATION;
 CREATE TABLE PATIENTPRESENTATION
 (
-    PPR_ID                 int                  NOT NULL AUTO_INCREMENT,
+    PPR_ID                 int                  not null auto_increment,
     PPR_PAT_ID             int                  not null,
     PPR_PRES_DATE          date,
     PPR_CONS_DATE          date,
     PPR_PREV_DATE          date,
-    PPR_REFERRED_FROM      varchar(300),
-    PPR_PAT_AILM_DESC      varchar(300),
-    PPR_DOC_AILM_DESC      varchar(300),
-    PPR_SPEC_SYMPTOMS      varchar(300),
-    PPR_DIAGNOSIS          varchar(300),
-    PPR_PROGNOSIS          varchar(300),
-    PPR_ADVICE             varchar(300),
-    PPR_PRESCRIBED         varchar(300),
-    PPR_FOLLOW_UP          varchar(300),
-    PPR_REFERRED_TO        varchar(300),
-    PPR_SUMMARY            varchar(300)         not null,
+    PPR_REFERRED_FROM      varchar(100),
+    PPR_PAT_AILM_DESC      text,
+    PPR_DOC_AILM_DESC      text,
+    PPR_SPEC_SYMPTOMS      text,
+    PPR_DIAGNOSIS          text,
+    PPR_PROGNOSIS          text,
+    PPR_ADVICE             text,
+    PPR_PRESCRIBED         text,
+    PPR_FOLLOW_UP          text,
+    PPR_REFERRED_TO        varchar(100),
+    PPR_SUMMARY            text         not null,
     PPR_VITALS_WEIGHT      float,
     PPR_VITALS_HEIGHT      float,
     PPR_VITALS_BLOOD_SUGAR float,
