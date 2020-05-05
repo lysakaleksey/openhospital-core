@@ -23,6 +23,7 @@ import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.isf.utils.db.Auditable;
 import org.isf.opd.model.Opd;
 import org.joda.time.DateTime;
@@ -159,27 +160,34 @@ public class Patient extends Auditable<String>
 	private String profession;
 
 	@NotNull
+	@JsonIgnore
 	@Column(name="PAT_DELETED")
 	private String deleted = "N";
 
 	@Transient
+	@JsonIgnore
 	private float height;
 	
 	@Transient
+	@JsonIgnore
 	private float weight;
 	
 	@Version
+	@JsonIgnore
 	@Column(name="PAT_LOCK")
 	private int lock;
 	
 	@Column(name="PAT_PHOTO")
 	@Lob
+	@JsonIgnore
 	private Blob photo;
 	
 	@Transient
+	@JsonIgnore
 	private Image photoImage;
 	
 	@Transient
+	@JsonIgnore
 	private volatile int hashCode = 0;
 	
 
@@ -488,15 +496,18 @@ public class Patient extends Auditable<String>
 	public void setMother_name(String mother_name) {
 		this.mother_name = mother_name;
 	}
-	
+
+	@JsonIgnore
 	public Blob getBlobPhoto() {
 		return photo;
 	}
-	
+
+	@JsonIgnore
 	public void setBlobPhoto(Blob photo) {
 		this.photo = photo;
 	}
 
+	@JsonIgnore
 	public Image getPhoto() {
 		try {
 			if (photo != null && photo.length() > 0) {
@@ -511,7 +522,8 @@ public class Patient extends Auditable<String>
 		} 
 		return photoImage;
 	}
-	
+
+	@JsonIgnore
 	public void setPhoto(Image image) {
 		this.photoImage = image;
 	}
