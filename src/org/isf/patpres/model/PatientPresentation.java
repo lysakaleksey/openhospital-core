@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.GregorianCalendar;
 
@@ -43,6 +44,7 @@ public class PatientPresentation extends Auditable<String> {
 	})
 	private Vitals vitals;
 
+	@NotNull
 	@Column(name = "PPR_PRES_DATE")
 	private GregorianCalendar presentationDate;
 
@@ -93,6 +95,7 @@ public class PatientPresentation extends Auditable<String> {
 	private String referredTo;
 
 	@NotNull
+	@Min(value = 1)
 	@Max(value = 1000)
 	@Column(name = "PPR_SUMMARY")
 	private String summary;
