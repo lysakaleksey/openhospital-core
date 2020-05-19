@@ -260,7 +260,7 @@ public class PatientPresentation extends Auditable<String> {
 
 		PatientPresentation that = (PatientPresentation) o;
 
-		if (code != that.code) return false;
+		if (code != null ? !code.equals(that.code) : that.code != null) return false;
 		if (patient != null ? !patient.equals(that.patient) : that.patient != null) return false;
 		if (vitals != null ? !vitals.equals(that.vitals) : that.vitals != null) return false;
 		if (presentationDate != null ? !presentationDate.equals(that.presentationDate) : that.presentationDate != null) return false;
@@ -281,7 +281,7 @@ public class PatientPresentation extends Auditable<String> {
 
 	@Override
 	public int hashCode() {
-		int result = code;
+		int result = code != null ? code.hashCode() : 0;
 		result = 31 * result + (patient != null ? patient.hashCode() : 0);
 		result = 31 * result + (vitals != null ? vitals.hashCode() : 0);
 		result = 31 * result + (presentationDate != null ? presentationDate.hashCode() : 0);
