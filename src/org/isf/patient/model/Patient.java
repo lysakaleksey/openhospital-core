@@ -23,6 +23,7 @@ import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.isf.utils.db.Auditable;
 import org.isf.opd.model.Opd;
@@ -94,7 +95,7 @@ public class Patient extends Auditable<String>
 	@NotNull
 	@Column(name="PAT_NAME")
 	private String name;
-	
+
 	@Column(name="PAT_BDATE")
 	private Date birthDate;
 
@@ -333,7 +334,8 @@ public class Patient extends Auditable<String>
 		}
 		return age;
 	}
-	
+
+	@JsonIgnore
 	public int getMonths() {
 		int months = 0;
 		if (this.birthDate != null) {
@@ -603,7 +605,8 @@ public class Patient extends Auditable<String>
 	  
 	    return this.hashCode;
 	}
-	
+
+	@JsonIgnore
 	public String getSearchString() {
 		StringBuffer sbName = new StringBuffer();
 		sbName.append(getCode());
@@ -620,7 +623,8 @@ public class Patient extends Auditable<String>
 		if (getTaxCode() != null) sbName.append(getTaxCode().toLowerCase()).append(" ");
 		return sbName.toString();
 	}
-	
+
+	@JsonIgnore
 	public String getInformations() {
 		int i = 0;
 		StringBuffer infoBfr = new StringBuffer();

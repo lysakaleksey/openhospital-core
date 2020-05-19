@@ -5,16 +5,15 @@ import org.isf.patpres.model.PatientPresentation;
 import org.isf.patpres.model.Vitals;
 import org.isf.utils.exception.OHException;
 
-import javax.persistence.Column;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
 public class TestPatientPresentation {
-	private final GregorianCalendar previousConsult = new GregorianCalendar(1984, Calendar.AUGUST, 1);
-	private final GregorianCalendar presentationDate = new GregorianCalendar(1984, Calendar.AUGUST, 2);
-	private final GregorianCalendar consultationEnd = new GregorianCalendar(1984, Calendar.AUGUST, 3);
+	private final Date previousConsult = new Date(1984, Calendar.AUGUST, 1);
+	private final Date presentationDate = new Date(1984, Calendar.AUGUST, 2);
+	private final Date consultationEnd = new Date(1984, Calendar.AUGUST, 3);
 	private final int code = 0;
 	private final String referredFrom = "referredFrom";
 	private final String patientAilmentDescription = "patientAilmentDescription";

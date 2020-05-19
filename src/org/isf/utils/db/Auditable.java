@@ -12,6 +12,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -26,24 +27,29 @@ import org.springframework.data.annotation.LastModifiedDate;
 @EntityListeners(AuditingEntityListener.class)
 
 public abstract class Auditable<U> {
-    @CreatedBy
+	@JsonIgnore
+	@CreatedBy
     @Column(name="CREATED_BY")
     protected U createdBy;
-     
+
+	@JsonIgnore
     @CreatedDate
     @Temporal(TIMESTAMP)
     @Column(name="CREATED_DATE")
     protected Date createdDate;
-    
+
+	@JsonIgnore
     @LastModifiedBy
     @Column(name="LAST_MODIFIED_BY")
     protected U lastModifiedBy;
-    
+
+	@JsonIgnore
     @LastModifiedDate
     @Temporal(TIMESTAMP)
     @Column(name="LAST_MODIFIED_DATE")
     protected Date lastModifiedDate;
    
+	@JsonIgnore
     @Column(name="ACTIVE")
     protected int active = 1;
 

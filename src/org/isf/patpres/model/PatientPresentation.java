@@ -5,10 +5,10 @@ import org.isf.utils.db.Auditable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.GregorianCalendar;
+import java.util.Date;
+
+import static javax.persistence.TemporalType.DATE;
 
 @Entity
 @Table(name = "PATIENTPRESENTATION")
@@ -24,7 +24,7 @@ public class PatientPresentation extends Auditable<String> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "PPR_ID")
-	private int code;
+	private Integer code;
 
 	@NotNull
 	@ManyToOne
@@ -45,66 +45,57 @@ public class PatientPresentation extends Auditable<String> {
 	private Vitals vitals;
 
 	@NotNull
+	@Temporal(DATE)
 	@Column(name = "PPR_PRES_DATE")
-	private GregorianCalendar presentationDate;
+	private Date presentationDate;
 
+	@Temporal(DATE)
 	@Column(name = "PPR_CONS_DATE")
-	private GregorianCalendar consultationEnd;
+	private Date consultationEnd;
 
+	@Temporal(DATE)
 	@Column(name = "PPR_PREV_DATE")
-	private GregorianCalendar previousConsult;
+	private Date previousConsult;
 
-	@Max(value = 100)
 	@Column(name = "PPR_REFERRED_FROM")
 	private String referredFrom;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_PAT_AILM_DESC")
 	private String patientAilmentDescription;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_DOC_AILM_DESC")
 	private String doctorsAilmentDescription;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_SPEC_SYMPTOMS")
 	private String specificSymptoms;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_DIAGNOSIS")
 	private String diagnosis;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_PROGNOSIS")
 	private String prognosis;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_ADVICE")
 	private String patientAdvice;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_PRESCRIBED")
 	private String prescribed;
 
-	@Max(value = 65535)
 	@Column(name = "PPR_FOLLOW_UP")
 	private String followUp;
 
-	@Max(value = 100)
 	@Column(name = "PPR_REFERRED_TO")
 	private String referredTo;
 
 	@NotNull
-	@Min(value = 1)
-	@Max(value = 1000)
 	@Column(name = "PPR_SUMMARY")
 	private String summary;
 
 	public PatientPresentation() {
 	}
 
-	public PatientPresentation(int code, Patient patient, Vitals vitals, GregorianCalendar presentationDate, GregorianCalendar consultationEnd,
-							   GregorianCalendar previousConsult, String referredFrom, String patientAilmentDescription, String doctorsAilmentDescription,
+	public PatientPresentation(int code, Patient patient, Vitals vitals, Date presentationDate, Date consultationEnd,
+							   Date previousConsult, String referredFrom, String patientAilmentDescription, String doctorsAilmentDescription,
 							   String specificSymptoms, String diagnosis, String prognosis, String patientAdvice, String prescribed, String followUp,
 							   String referredTo, String summary) {
 		this.code = code;
@@ -126,11 +117,11 @@ public class PatientPresentation extends Auditable<String> {
 		this.summary = summary;
 	}
 
-	public int getCode() {
+	public Integer getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(Integer code) {
 		this.code = code;
 	}
 
@@ -150,27 +141,27 @@ public class PatientPresentation extends Auditable<String> {
 		this.vitals = vitals;
 	}
 
-	public GregorianCalendar getPresentationDate() {
+	public Date getPresentationDate() {
 		return presentationDate;
 	}
 
-	public void setPresentationDate(GregorianCalendar presentationDate) {
+	public void setPresentationDate(Date presentationDate) {
 		this.presentationDate = presentationDate;
 	}
 
-	public GregorianCalendar getConsultationEnd() {
+	public Date getConsultationEnd() {
 		return consultationEnd;
 	}
 
-	public void setConsultationEnd(GregorianCalendar consultationEnd) {
+	public void setConsultationEnd(Date consultationEnd) {
 		this.consultationEnd = consultationEnd;
 	}
 
-	public GregorianCalendar getPreviousConsult() {
+	public Date getPreviousConsult() {
 		return previousConsult;
 	}
 
-	public void setPreviousConsult(GregorianCalendar previousConsult) {
+	public void setPreviousConsult(Date previousConsult) {
 		this.previousConsult = previousConsult;
 	}
 

@@ -1,11 +1,16 @@
 package org.isf.patient.service;
 
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
+import org.isf.patient.model.Patient;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -22,8 +27,45 @@ public class PatientIoOperationRepositoryImpl implements PatientIoOperationRepos
 		return this.entityManager.
 				createNativeQuery(_getPatientsWithHeightAndWeightQueryByRegex(regex)).
 					getResultList();
-	}	
+	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Patient> findAllByFilter(String firstName, String secondName, Date birthDate, char sex) {
+		List<Object> parameters = new ArrayList<Object>();
+		StringBuilder query = new StringBuilder("SELECT * FROM PATIENT WHERE (PAT_DELETED='N' OR PAT_DELETED IS NULL)");
+
+		if (firstName != null && firstName.length() > 0) {
+			parameters.add("%" + firstName.toUpperCase() + "%");
+			query.append(" AND UPPER(PAT_FNAME) like ?");
+		}
+
+		if (secondName != null && secondName.length() > 0) {
+			parameters.add("%" + secondName.toUpperCase() + "%");
+			query.append(" AND UPPER(PAT_SNAME) like ?");
+		}
+
+		if (birthDate != null) {
+			query.append(" AND DATE_FORMAT(PAT_BDATE,'%Y-%m-%d') = \"").append(_convertToSQLDateLimited(birthDate)).append("\"");
+		}
+
+		if (sex != ' ' && sex != 0) {
+			parameters.add(sex);
+			query.append(" AND PAT_SEX = ?");
+		}
+
+		query.append(" ORDER BY PAT_ID DESC");
+		Query nativeQuery = this.entityManager.createNativeQuery(query.toString());
+		for (int i = 0; i < parameters.size(); i++) {
+			nativeQuery.setParameter(i+1, parameters.get(i));
+		}
+		return nativeQuery.getResultList();
+	}
+
+	private String _convertToSQLDateLimited(Date date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(date);
+	}
 	
 	private String _getPatientsWithHeightAndWeightQueryByRegex(
 			String regex) 
