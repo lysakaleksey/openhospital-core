@@ -48,4 +48,8 @@ delete from DISEASE;
 delete from DISEASETYPE;
 delete from PATIENT;
 delete from WARD;
+delete from PATIENTPRESENTATION;
+delete from TEMPUNIT;
+delete from BSUNIT;
+
 
