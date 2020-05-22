@@ -55,7 +55,7 @@ public class PatientIoOperationRepositoryImpl implements PatientIoOperationRepos
 		}
 
 		query.append(" ORDER BY PAT_ID DESC");
-		Query nativeQuery = this.entityManager.createNativeQuery(query.toString());
+		Query nativeQuery = this.entityManager.createNativeQuery(query.toString(), Patient.class);
 		for (int i = 0; i < parameters.size(); i++) {
 			nativeQuery.setParameter(i+1, parameters.get(i));
 		}
